@@ -1,3 +1,5 @@
+import 'package:coffee_card/styled_body_text.dart';
+import 'package:coffee_card/styled_button.dart';
 import 'package:flutter/material.dart';
 
 class CoffeePrefs extends StatefulWidget {
@@ -8,25 +10,24 @@ class CoffeePrefs extends StatefulWidget {
 }
 
 class _CoffeePrefsState extends State<CoffeePrefs> {
-
   int strength = 0;
   int sugars = 0;
   int creamers = 0;
 
   void increaseStrength() {
-    setState((){
+    setState(() {
       strength = strength < 5 ? strength + 1 : 0;
     });
   }
 
   void increaseCreamers() {
-    setState((){
+    setState(() {
       creamers = creamers < 5 ? creamers + 1 : 0;
     });
   }
 
   void increaseSugars() {
-    setState((){
+    setState(() {
       sugars = sugars < 5 ? sugars + 1 : 0;
     });
   }
@@ -37,89 +38,68 @@ class _CoffeePrefsState extends State<CoffeePrefs> {
       children: [
         Row(
           children: [
-            const Text('Strength: '),
+            const StyledBodyText('Strength: '),
 
-            if (strength == 0)
-              Text('Decaf', style: TextStyle(
-                color: Colors.brown[700],
-                fontWeight: FontWeight.bold
-              )),
+            if (strength == 0) StyledBodyText('Decaf'),
 
             for (int i = 0; i < strength; i++)
-              Image.asset('assets/img/coffee_bean.png',
+              Image.asset(
+                'assets/img/coffee_bean.png',
                 width: 25,
                 color: Colors.brown[100],
-                colorBlendMode: BlendMode.multiply,           
+                colorBlendMode: BlendMode.multiply,
               ),
 
             const Expanded(child: SizedBox()),
-            FilledButton(
-              style: FilledButton.styleFrom(
-                backgroundColor: Colors.brown,
-                foregroundColor: Colors.white,
-              ),
+            StyledButton(
               onPressed: increaseStrength,
               child: const Text('+'),
             ),
-          ]
+          ],
         ),
 
         Row(
           children: [
-            const Text('Creamers: '),
-            
-            if (creamers == 0)
-              Text('None', style: TextStyle(
-                color: Colors.brown[700],
-                fontWeight: FontWeight.bold
-              )),
+            const StyledBodyText('Sugars: '),
 
-            for (int i = 0; i < creamers; i++)
-              Image.asset('assets/img/creamer.png',
-                width: 35,
-                color: Colors.brown[100],
-                colorBlendMode: BlendMode.multiply,            
-              ),
-            const Expanded(child: SizedBox()),
-            FilledButton(
-              style: FilledButton.styleFrom(
-                backgroundColor: Colors.brown,
-                foregroundColor: Colors.white,
-              ),
-              onPressed: increaseCreamers,
-              child: const Text('+'),
-            ),
-          ]
-        ),
-
-        Row(
-          children: [
-            const Text('Sugars: '),
-            
-            if (sugars == 0)
-              Text('None', style: TextStyle(
-                color: Colors.brown[700],
-                fontWeight: FontWeight.bold
-              )),
+            if (sugars == 0) StyledBodyText('None'),
 
             for (int i = 0; i < sugars; i++)
-              Image.asset('assets/img/sugar_cube.png',
+              Image.asset(
+                'assets/img/sugar_cube.png',
                 width: 25,
                 color: Colors.brown[100],
-                colorBlendMode: BlendMode.multiply,            
+                colorBlendMode: BlendMode.multiply,
               ),
             const Expanded(child: SizedBox()),
-            FilledButton(
-              style: FilledButton.styleFrom(
-                backgroundColor: Colors.brown,
-                foregroundColor: Colors.white,
-              ),
+            StyledButton(
               onPressed: increaseSugars,
               child: const Text('+'),
             ),
-          ]
+          ],
         ),
-      ]
+
+        Row(
+          children: [
+            const StyledBodyText('Creamers: '),
+
+            if (creamers == 0) StyledBodyText('None'),
+
+            for (int i = 0; i < creamers; i++)
+              Image.asset(
+                'assets/img/creamer.png',
+                width: 35,
+                color: Colors.brown[100],
+                colorBlendMode: BlendMode.multiply,
+              ),
+            const Expanded(child: SizedBox()),
+            StyledButton(
+              onPressed: increaseCreamers,
+              child: const Text('+'),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
