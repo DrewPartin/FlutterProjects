@@ -9,7 +9,7 @@ class Character with Stats {
     required this.name,
     required this.vocation,
     required this.id,
-    this.slogan,
+    required this.slogan,
   });
 
   // fields
@@ -17,7 +17,7 @@ class Character with Stats {
   final Vocation vocation;
   final String name;
   final String id;
-  String? slogan;
+  final String slogan;
   bool _isFav = false;
 
   // getters
