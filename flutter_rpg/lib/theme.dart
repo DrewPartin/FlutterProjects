@@ -51,7 +51,7 @@ ThemeData primaryTheme = ThemeData(
 
   // card theme
   cardTheme: CardTheme(
-    color: AppColors.secondaryColor.withOpacity(0.5),
+    color: AppColors.secondaryColor.withAlpha((0.5 * 255).toInt()), // make secondaryColor 50% opaque
     surfaceTintColor: Colors.transparent,
     shape: const RoundedRectangleBorder(),
     shadowColor: Colors.transparent,

@@ -18,7 +18,7 @@ enum Vocation {
     description: 'Uses quick & stealthy visual attacks',
     weapon: 'Infused Stylus',
     ability: 'Triple Swipe',
-    image: 'us_ninja.jpg'
+    image: 'ux_ninja.jpg'
   ),
   wizard(
     title: 'Algo Wizard',
