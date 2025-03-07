@@ -18,7 +18,6 @@ Character Model (class)
   -> skills (set of type Skill (class))
        -> name
        -> image (string)
-       -> description (string)
        -> vocation (Vocation - associated vocation for skill)
        -> id (int/string?)
 
@@ -28,3 +27,8 @@ Character Model (class)
        -> defense (int)
        -> skill (int)
        -> points (int)
+
+algo wizard
+code junkie
+terminal raider
+ux ninja
